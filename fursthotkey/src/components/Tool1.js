@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
-
+import * as Mousetrap from 'mousetrap';
 
 class Tool1 extends Component {
     state = {
-        name: 'Cat in the Hat',
+        name: 'Press button S',
     };
 
     handleChange = name => event => {
         this.setState({
-            [name]: event.target.value,
+            name: 'Button pressed: ' + event.key,
         });
+        console.log(event.key);
     };
+
+    componentDidMount() {
+        Mousetrap.bind(['s'], this.handleChange);
+    }
+
+    componentWillUnmount() {
+        Mousetrap.unbind(['s'], this.handleChange);
+    }
 
     render() {
         return (
@@ -19,10 +28,11 @@ class Tool1 extends Component {
                 <div class="row">
                     <div class="col">
                         <TextField
+                            autoFocus
                             id="name"
                             label="Name"
                             value={this.state.name}
-                            onChange={this.handleChange('name')}
+                            onKeyDown={this.handleChange('name')}
                             margin="normal"
                         />
                     </div>
