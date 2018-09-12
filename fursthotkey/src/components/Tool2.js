@@ -25,7 +25,7 @@ class Tool2 extends Component {
                     <div className="col">
                         <TextField
                             id="name"
-                            label="Name"
+                            label="Tool 2"
                             value={this.state.name}
                             margin="normal"
                         />
