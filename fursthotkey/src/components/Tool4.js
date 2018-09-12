@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
-
+import * as Mousetrap from 'mousetrap';
 
 class Tool4 extends Component {
     state = {
-        name: 'Cat in the Hat',
+        name: 'Press shift+g',
     };
 
     handleChange = name => event => {
         this.setState({
-            [name]: event.target.value,
+            name: 'Button pressed: ' + event.key,
         });
+        console.log(event.key);
     };
+
+    componentWillMount() {
+        Mousetrap.bind('shift+g', this.handleChange())
+    }
 
     render() {
         return (
             <form>
-                <div class="row">
-                    <div class="col">
+                <div className="row">
+                    <div className="col">
                         <TextField
                             id="name"
                             label="Name"
                             value={this.state.name}
-                            onChange={this.handleChange('name')}
                             margin="normal"
                         />
                     </div>

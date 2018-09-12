@@ -7,7 +7,7 @@ import MainView from './components/MainView';
 class App extends Component {
   render() {
     return (
-      <div class="App">
+      <div className="App">
         <Router>
           <Switch>
             <Route exact path="/" component={MainView} />

@@ -5,27 +5,24 @@ import Tool3 from './Tool3';
 import Tool4 from './Tool4';
 
 class MainView extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         return (
             <div>
                 <h1>Hello</h1>
-                <div class="row">
-                    <div class="col">
+                <div className="row">
+                    <div className="col">
                         <Tool1 />
                     </div>
-                    <div class="col">
+                    <div className="col">
                         <Tool2 />   
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
+                <div className="row">
+                    <div className="col">
                         <Tool3 />   
                     </div>
-                    <div class="col">
+                    <div className="col">
                         <Tool4 />   
                     </div>
                 </div>

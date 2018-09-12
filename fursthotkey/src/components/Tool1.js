@@ -4,7 +4,7 @@ import * as Mousetrap from 'mousetrap';
 
 class Tool1 extends Component {
     state = {
-        name: 'Press button S',
+        name: 'Press shift+s',
     };
 
     handleChange = name => event => {
@@ -14,25 +14,19 @@ class Tool1 extends Component {
         console.log(event.key);
     };
 
-    componentDidMount() {
-        Mousetrap.bind(['s'], this.handleChange);
-    }
-
-    componentWillUnmount() {
-        Mousetrap.unbind(['s'], this.handleChange);
+    componentWillMount() {
+        Mousetrap.bind('shift+s', this.handleChange())
     }
 
     render() {
         return (
             <form>
-                <div class="row">
-                    <div class="col">
+                <div className="row">
+                    <div className="col">
                         <TextField
-                            autoFocus
                             id="name"
                             label="Name"
                             value={this.state.name}
-                            onKeyDown={this.handleChange('name')}
                             margin="normal"
                         />
                     </div>
