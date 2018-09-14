@@ -1,34 +1,82 @@
 import React, { Component } from 'react';
-import Tool1 from './Tool1';
-import Tool2 from './Tool2';
-import Tool3 from './Tool3';
-import Tool4 from './Tool4';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import * as Mousetrap from 'mousetrap';
+
+import ToolView from './ToolView';
+
+function TabContainer(props) {
+    return (
+        <Typography component="div" style={{ padding: 8 * 3 }}>
+            {props.children}
+        </Typography>
+    );
+}
+
+TabContainer.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
+const styles = theme => ({
+    root: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.paper,
+        backgroundColor: (64, 70, 70)
+    },
+});
 
 class MainView extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            value: 0,
+        };
+    }
+
+    handleChange = (event, value) => {
+        this.setState({ value });
+    };
+
+    switchTab = (value) => {
+        this.setState({ value });
+    }
+
+
+
+    componentWillMount() {
+        Mousetrap.bind('shift+1', () => this.switchTab(0))
+        Mousetrap.bind('shift+2', () => this.switchTab(1))
+        Mousetrap.bind('shift+3', () => this.switchTab(2))
+    }
 
     render() {
+        const { classes } = this.props;
+        const { value } = this.state;
+
         return (
-            <div>
-                <h1>Hello</h1>
-                <div className="row">
-                    <div className="col">
-                        <Tool1 />
-                    </div>
-                    <div className="col">
-                        <Tool2 />   
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        <Tool3 />   
-                    </div>
-                    <div className="col">
-                        <Tool4 />   
-                    </div>
-                </div>
+            <div className={classes.root}>
+                <AppBar position="static">
+                    <Tabs value={value} onChange={this.handleChange} centered>
+                        <Tab label="Item One" />
+                        <Tab label="Item Two" />
+                        <Tab label="Item Three" />
+                    </Tabs>
+                </AppBar>
+                {value === 0 && <TabContainer><ToolView/></TabContainer>}
+                {value === 1 && <TabContainer>Item Two</TabContainer>}
+                {value === 2 && <TabContainer>Item Three</TabContainer>}
             </div>
         )
     }
 }
 
-export default MainView;
+MainView.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(MainView);

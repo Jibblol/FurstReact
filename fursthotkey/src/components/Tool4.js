@@ -18,6 +18,10 @@ class Tool4 extends Component {
         Mousetrap.bind('shift+g', this.handleChange())
     }
 
+    componentWillUnmount() {
+        Mousetrap.unbind('shift+g')
+    }
+
     render() {
         return (
             <form>

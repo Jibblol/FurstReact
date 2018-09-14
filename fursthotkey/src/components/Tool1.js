@@ -17,6 +17,9 @@ class Tool1 extends Component {
     componentWillMount() {
         Mousetrap.bind('shift+s', this.handleChange())
     }
+    componentWillUnmount() {
+        Mousetrap.unbind('shift+s')
+    }
 
     render() {
         return (
