@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import * as Mousetrap from 'mousetrap';
 
 import ToolView from './ToolView';
+import RowView from './RowView';
 
 function TabContainer(props) {
     return (
@@ -68,7 +69,7 @@ class MainView extends Component {
                     </Tabs>
                 </AppBar>
                 {value === 0 && <TabContainer><ToolView/></TabContainer>}
-                {value === 1 && <TabContainer>Item Two</TabContainer>}
+                {value === 1 && <TabContainer><RowView/></TabContainer>}
                 {value === 2 && <TabContainer>Item Three</TabContainer>}
             </div>
         )

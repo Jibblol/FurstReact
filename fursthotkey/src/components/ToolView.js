@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Tool1 from './Tool1';
-import Tool2 from './Tool2';
-import Tool3 from './Tool3';
-import Tool4 from './Tool4';
+import Tool1 from './Tools/Tool1';
+import Tool2 from './Tools/Tool2';
+import Tool3 from './Tools/Tool3';
+import Tool4 from './Tools/Tool4';
 
 class ToolView extends Component {
     render() {
