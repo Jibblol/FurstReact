@@ -7,11 +7,6 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import * as Mousetrap from 'mousetrap';
 
-import ToolView from './ToolView';
-import RowView from './RowView';
-import Tab3View from './Tab3View';
-import Tool1 from './Tools/Tool1';
-
 function TabContainer(props) {
     return (
         <Typography component="div" style={{ padding: 8 * 3 }}>
@@ -32,7 +27,7 @@ const styles = theme => ({
     },
 });
 
-class MainView extends Component {
+class Tab3View extends Component {
     constructor(props) {
         super(props)
 
@@ -52,9 +47,8 @@ class MainView extends Component {
 
 
     componentWillMount() {
-        Mousetrap.bind('shift+1', () => this.switchTab(0))
-        Mousetrap.bind('shift+2', () => this.switchTab(1))
-        Mousetrap.bind('shift+3', () => this.switchTab(2))
+        Mousetrap.bind('shift+4', () => this.switchTab(0))
+        Mousetrap.bind('shift+5', () => this.switchTab(1))
     }
 
     render() {
@@ -67,31 +61,17 @@ class MainView extends Component {
                     <Tabs value={value} onChange={this.handleChange} centered>
                         <Tab label="Item One" />
                         <Tab label="Item Two" />
-                        <Tab label="Item Three" />
                     </Tabs>
                 </AppBar>
-                {value === 0 && <TabContainer><ToolView/></TabContainer>}
-                {value === 1 && <TabContainer><RowView/></TabContainer>}
-                {
-                    value === 2 && 
-                    <TabContainer>
-                        <div class="row">
-                            <div class="col">
-                                <Tab3View />
-                            </div>
-                            <div class="col">
-                                <Tool1 />
-                            </div>
-                        </div>
-                    </TabContainer>
-                }
+                {value === 0 && <TabContainer>Item one</TabContainer>}
+                {value === 1 && <TabContainer>Item two</TabContainer>}
             </div>
         )
     }
 }
 
-MainView.propTypes = {
+Tab3View.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MainView);
+export default withStyles(styles)(Tab3View);
