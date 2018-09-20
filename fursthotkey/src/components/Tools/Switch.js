@@ -11,11 +11,11 @@ class TestSwitch extends Component {
     };
 
     handleChange = name => event => {
-        if (event.key == 'S') {
+        if (event.key === 'S') {
             this.setState({
                 checkedA: true,
             })
-        } else if (event.key == 'D') {
+        } else if (event.key === 'D') {
             this.setState({
                 checkedB: true,
             })
