@@ -39,7 +39,7 @@ class RowView extends Component {
             expanded: expanded ? panel : true,
             
         })
-        console.log('Tab 2:' + event.key);
+        console.log('Tab 2: ' + event.key);
     }
 
     componentDidMount() {
