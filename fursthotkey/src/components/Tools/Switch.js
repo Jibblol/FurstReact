@@ -20,7 +20,6 @@ class TestSwitch extends Component {
                 checkedB: true,
             })
         }
-        // this.setState({ [name]: event.target.checked });
         console.log(event.key)
     };
 
