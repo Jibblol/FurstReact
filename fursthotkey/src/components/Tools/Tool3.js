@@ -14,7 +14,7 @@ class Tool3 extends Component {
         console.log('Tab 1: ' + event.key);
     };
 
-    componentWillMount() {
+    componentDidMount() {
         Mousetrap.bind('shift+f', this.handleChange())
     }
 

@@ -49,12 +49,12 @@ class RowView extends Component {
         Mousetrap.bind('shift+g', this.openPanel('panel4'))
     }
 
-    // componentWillUnmount() {
-    //     Mousetrap.unbind('shift+s')
-    //     Mousetrap.unbind('shift+d')
-    //     Mousetrap.unbind('shift+f')
-    //     Mousetrap.unbind('shift+g')
-    // }
+    componentWillUnmount() {
+        // Mousetrap.unbind('shift+s')
+        // Mousetrap.unbind('shift+d')
+        Mousetrap.unbind('shift+f')
+        Mousetrap.unbind('shift+g')
+    }
 
     render() {
         const { classes } = this.props;

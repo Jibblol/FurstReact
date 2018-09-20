@@ -51,6 +51,11 @@ class Tab3View extends Component {
         Mousetrap.bind('shift+5', () => this.switchTab(1))
     }
 
+    componentWillUnmount() {
+        Mousetrap.unbind('shift+4')
+        Mousetrap.unbind('shift+5')
+    }
+
     render() {
         const { classes } = this.props;
         const { value } = this.state;

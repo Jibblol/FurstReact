@@ -14,7 +14,7 @@ class Tool1 extends Component {
         console.log('Tab 1: ' + event.key);
     };
 
-    componentWillMount() {
+    componentDidMount() {
         Mousetrap.bind('shift+s', this.handleChange())
     }
     componentWillUnmount() {

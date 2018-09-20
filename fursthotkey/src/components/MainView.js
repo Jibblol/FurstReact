@@ -11,7 +11,6 @@ import ToolView from './ToolView';
 import RowView from './RowView';
 import Tab3View from './Tab3View';
 import TestSwitch from './Tools/Switch';
-import Tool1 from './Tools/Tool1';
 
 function TabContainer(props) {
     return (
