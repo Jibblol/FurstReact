@@ -11,7 +11,7 @@ class Tool1 extends Component {
         this.setState({
             name: 'Button pressed: ' + event.key,
         });
-        console.log(event.key);
+        console.log('Tab 1: ' + event.key);
     };
 
     componentWillMount() {
